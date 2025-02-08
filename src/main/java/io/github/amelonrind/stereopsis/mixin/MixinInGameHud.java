@@ -207,7 +207,7 @@ public abstract class MixinInGameHud {
     }
 
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
-    private void moveInventory(DrawContext context, float tickDelta, CallbackInfo ci) {
+    private void moveInventory(DrawContext context, net.minecraft.class_9779 tickDelta, CallbackInfo ci) {
         if (enabled && client.currentScreen != null) {
             ci.cancel();
             Profiler profiler = Profilers.get();
