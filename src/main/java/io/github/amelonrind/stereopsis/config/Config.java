@@ -47,6 +47,12 @@ public class Config {
     @SerialEntry(comment = "The offset of the HUD")
     public int hudOffset = 0;
 
+    @SerialEntry(comment = "Splits the inventory to both sides")
+    public boolean splitInventory = false;
+
+    @SerialEntry(comment = "Splits other UI elements to both sides")
+    public boolean splitOtherUI = false;
+
     public void fixValues() {
         if (maxXOffset < 0.0f) maxXOffset = 0.0f;
         if (maxXOffset > 0.25f) maxXOffset = 0.25f;

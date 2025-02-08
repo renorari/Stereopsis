@@ -21,6 +21,10 @@
   "stereopsis.settings.inverseHudXOffsetDirection.description": "Decides if xOffset (affected by crosshair target distance) should be in inverse on HUD.",
   "stereopsis.settings.hudOffset": "HUD Offset",
   "stereopsis.settings.hudOffset.description": "",
+  "stereopsis.settings.splitInventory": "Split Inventory",
+  "stereopsis.settings.splitInventory.description": "Splits the inventory to both sides",
+  "stereopsis.settings.splitOtherUI": "Split Other UI",
+  "stereopsis.settings.splitOtherUI.description": "Splits other UI elements to both sides",
 
   "stereopsis.settings.value.ar": "AR (Parallel) (Experimental)",
   "stereopsis.settings.value.cross": "Cross",

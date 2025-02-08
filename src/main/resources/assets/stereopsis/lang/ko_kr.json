@@ -19,6 +19,10 @@
   "stereopsis.settings.inverseHudXOffsetDirection.description": "x값(조준선 초점 대상 거리의 영향을 받음)이 HUD에서 반전되어 적용됩니다.",
   "stereopsis.settings.hudOffset": "HUD 위치",
   "stereopsis.settings.hudOffset.description": "",
+  "stereopsis.settings.splitInventory": "인벤토리 분할",
+  "stereopsis.settings.splitInventory.description": "인벤토리를 양쪽으로 분할합니다.",
+  "stereopsis.settings.splitOtherUI": "기타 UI 분할",
+  "stereopsis.settings.splitOtherUI.description": "기타 UI 요소를 양쪽으로 분할합니다.",
 
   "stereopsis.settings.value.ar": "AR (평행) (실험)",
   "stereopsis.settings.value.cross": "크로스",

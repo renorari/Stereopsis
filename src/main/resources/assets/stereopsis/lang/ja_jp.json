@@ -19,6 +19,10 @@
   "stereopsis.settings.inverseHudXOffsetDirection.description": "この設定を有効にすると、HUDの水平オフセットの方向を反転反転します",
   "stereopsis.settings.hudOffset": "HUDの水平オフセット",
   "stereopsis.settings.hudOffset.description": "HUDの水平オフセット (HUDの前後位置の調整)",
+  "stereopsis.settings.splitInventory": "インベントリを両眼表示",
+  "stereopsis.settings.splitInventory.description": "インベントリを両側に分割表示します",
+  "stereopsis.settings.splitOtherUI": "その他のUIを分割",
+  "stereopsis.settings.splitOtherUI.description": "その他のUI要素を両側に分割表示します",
 
   "stereopsis.settings.value.ar": "AR(平行法) (試験的機能)",
   "stereopsis.settings.value.cross": "クロス(交叉法)",

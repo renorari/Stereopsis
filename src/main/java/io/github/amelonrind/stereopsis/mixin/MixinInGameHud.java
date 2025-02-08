@@ -206,4 +206,19 @@ public abstract class MixinInGameHud {
         if (enabled) ci.cancel();
     }
 
+    @Inject(method = "render", at = @At("HEAD"))
+    private void moveInventory(DrawContext context, float tickDelta, CallbackInfo ci) {
+        if (enabled && Config.get().splitInventory) {
+            Stereopsis.moveSideHud("inventory", context, false, () -> client.currentScreen.render(context, tickDelta, 0));
+            Stereopsis.moveSideHud("inventory", context, true, () -> client.currentScreen.render(context, tickDelta, 0));
+        }
+    }
+
+    @Inject(method = "render", at = @At("HEAD"))
+    private void moveOtherUI(DrawContext context, float tickDelta, CallbackInfo ci) {
+        if (enabled && Config.get().splitOtherUI) {
+            Stereopsis.moveSideHud("other-ui", context, false, () -> client.currentScreen.render(context, tickDelta, 0));
+            Stereopsis.moveSideHud("other-ui", context, true, () -> client.currentScreen.render(context, tickDelta, 0));
+        }
+    }
 }
