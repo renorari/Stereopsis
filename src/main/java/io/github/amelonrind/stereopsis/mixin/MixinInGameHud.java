@@ -20,8 +20,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArgs;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.ModifyArgs;
+import org.spongepowered.asm.mixin.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 
 import static io.github.amelonrind.stereopsis.Stereopsis.enabled;
@@ -206,4 +206,22 @@ public abstract class MixinInGameHud {
         if (enabled) ci.cancel();
     }
 
+    @Inject(method = "render", at = @At("HEAD"), cancellable = true)
+    private void renderInventory(DrawContext context, float tickDelta, CallbackInfo ci) {
+        if (enabled) {
+            ci.cancel();
+            Profiler profiler = Profilers.get();
+            profiler.push("stereopsis-inventory");
+            rendering = true;
+
+            righting = false;
+            renderHotbar(context, tickDelta);
+
+            righting = true;
+            renderHotbar(context, tickDelta);
+
+            rendering = false;
+            profiler.pop();
+        }
+    }
 }
