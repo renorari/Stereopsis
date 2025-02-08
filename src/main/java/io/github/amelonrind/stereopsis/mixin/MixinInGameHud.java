@@ -206,4 +206,26 @@ public abstract class MixinInGameHud {
         if (enabled) ci.cancel();
     }
 
+    @Inject(method = "render", at = @At("HEAD"), cancellable = true)
+    private void moveInventory(DrawContext context, float tickDelta, CallbackInfo ci) {
+        if (enabled && client.currentScreen != null) {
+            ci.cancel();
+            Profiler profiler = Profilers.get();
+            profiler.push("stereopsis-inventory");
+            rendering = true;
+
+            righting = false;
+            Stereopsis.offsetHudPush(context, false);
+            client.currentScreen.render(context, 0, 0, tickDelta);
+            context.getMatrices().pop();
+
+            righting = true;
+            Stereopsis.offsetHudPush(context, true);
+            client.currentScreen.render(context, 0, 0, tickDelta);
+            context.getMatrices().pop();
+
+            rendering = false;
+            profiler.pop();
+        }
+    }
 }
